@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
+    <style>
+        @font-face { font-family: "Open Sans" !important; src: url("https://handypay.com.au/vendor/OpenSans-Light.ttf") format("truetype") !important; font-weight: normal !important; font-style: normal !important; }
+        @font-face { font-family: "Open Sans" !important; src: url("https://handypay.com.au/vendor/OpenSans-SemiBold.ttf") format("truetype") !important; font-weight: bold !important; font-style: normal !important; }
+        @font-face { font-family: "Avalon" !important; src: url("https://handypay.com.au/vendor/Avalon-_4_.woff") format("woff") !important; font-weight: normal !important; font-style: normal !important; }
+        @font-face { font-family: "Avalon" !important; src: url("https://handypay.com.au/vendor/avalon-bold-webfont.woff") format("woff") !important; font-weight: bold !important; font-style: normal !important; }
+        @font-face { font-family: "Myriad Pro" !important; src: url("https://handypay.com.au/vendor/Myriad-Pro-Regular.ttf") format("truetype") !important; font-weight: normal, bold !important; font-style: normal !important; }
+		.omm-page { display: flex !important; flex-direction: column !important; align-items: center !important; text-align: center !important; line-height: normal !important; }
+		.omm-section { display: flex !important; flex-direction: column !important; align-items: center !important; max-width: 1400px !important; }
+        .omm-banner { position: relative !important; width: 100% !important; text-align: left !important; }
+		.omm-banner__image { width: 100% !important; }
+		.omm-banner-text { position:absolute !important; text-shadow:2px 2px 5px #2f2f2f !important; color:white !important; }
+        .omm-banner__button { position: absolute !important; left: 4% !important; top: 67% !important; background-color: #555 !important; color: white !important; cursor: pointer !important; }
+        .ommButton:hover { background-color: #FBC232 !important; }
+        .omm-figure-container { display: flex !important; flex-direction: row !important; flex-wrap: wrap !important;justify-content: center !important; }
+        .omm-figure-container--large { width: 100% !important; }
+        .omm-figure-container__figure { flex: 1 1 !important; }
+        .omm-figure-container__image-container { display: flex !important; justify-content: center !important; align-items: center !important; min-height: 100px  !important; }
+		.omm-a0 { font-family: Avalon, Sans-serif !important; font-weight: bold !important; }
+		.omm-a0-light { font-family: Avalon, Sans-serif !important; font-weight: normal !important; }
+		.omm-a1 { font-family: Avalon, Sans-serif !important; align-content: center !important; font-weight: bold !important; }
+        .omm-a1--footer { font-family: Avalon, Sans-serif !important; align-content: center !important; }
+        .omm-a1-light { font-family: Avalon, Sans-serif !important; align-content: center !important; }
+        .omm-a1-light--footer { font-family: Avalon, Sans-serif !important; align-content: center !important; }
+        .omm-a2 { display: flex !important; justify-content: center !important; align-content: center !important; font-family: Avalon, Sans-serif !important; font-weight: bold !important; font-size: 1.8em !important; }
+        .omm-a2-light { display: flex !important; justify-content: center !important; align-content: center !important; font-family: Avalon, Sans-serif !important; font-size: 1.8em !important; }
+        .omm-a3 { display: flex !important; font-family: Avalon, Sans-serif !important; align-content: center !important; justify-content: center !important; font-weight: bold !important; font-size: 1.3em !important; }
+        .omm-m4 { display: flex !important; justify-content: center !important; font-family: "Myriad Pro", Sans-serif !important; font-weight: bold !important; font-size: 1.2em !important; line-height:1.2em !important; }
+		.omm-m4-banner { justify-content:left !important; }
+        .omm-m5-light { display: flex !important; justify-content: center !important; font-family: "Myriad Pro", Sans-serif !important; font-size: 0.7em !important; }
+        .omm-s1 { display: flex !important; justify-content: center !important; font-family: "Open Sans", Sans-serif !important; color: #2b2b2b !important; font-size: 1.8em !important; }
+        .omm-s1-bold { display: flex !important; justify-content: center !important; font-family: "Open Sans", Sans-serif !important; font-size: 1.8em !important; color: #2b2b2b !important; font-weight: bold !important; }
+        .omm-s2 { display: flex !important; text-align:center !important; justify-content: center !important; font-family: "Open Sans", Sans-serif !important; color: #2b2b2b !important; font-size: 1em !important; }
+        .omm-s2--footer { font-size: 0.5em !important; }
+        .omm-s2.left { text-align: left !important; }
+		.omm-h5 { display: flex !important; justify-content: center !important; font-family: "Open Sans", Sans-serif !important; font-size: 0.5em !important; max-width: min(1000px, 70%) !important; }
+        .omm-list-container { display: flex !important; justify-content: center !important; width: 100vw !important; }
+        .omm-list-container__list { max-width: 95% !important; }
+        .omm-list-container__list-item { display: flex !important; justify-content: left !important; text-align: left !important; }
+        .omm-footer { width: 100% !important; }
+        .omm-a { text-decoration:none !important; color: #2b2b2b !important; font-family:'Open Sans' !important; }
+
+        @media screen and (max-width: 800px) {
+			.omm-page { font-size: min(max(calc(1rem + 1vmax)/1.5,14px),22px)  !important; }
+			.omm-banner { height: min(100vw/800*1200, 1200px) !important; background-size: cover !important; background-image: url("https://handypay.com.au/wp-content/uploads/2020/08/hero4.jpg") !important; background-repeat: no-repeat !important; background-position: top center !important; }
+			.omm-banner-text { left:4% !important; top:55% !important; }
+			.ommButton { background-color: #F78B2E !important; border-radius: 1em !important; border: 0px !important; display: inline-block !important; cursor: pointer !important; color: #ffffff !important; font-family: "Myriad Pro" !important; font-weight: Bold !important; font-size: 1.2em !important; padding: 0.5em 3em !important; text-decoration: none !important; text-shadow:none !important; }
+			.ommButton--bottom { font-size: 1.2em !important; padding: 0.5em 3em !important; }
+			.omm-m4 { font-size: min(1em, 14px) !important; }
+			.omm-m4-banner { font-size: min(1em, 100px) !important; }
+			.omm-logo { margin-top: 3em !important; width: 60% !important; max-width: 400px  !important; }
+			.omm-separator { margin: 30px !important; }
+			.omm-divider { border-top: 2px solid !important; border-bottom: 2px solid !important; border-left: 2px solid !important; border-right: 2px solid !important; border-radius: 2px !important; border-color: #F9C231 !important; border-bottom-color: #F9C231 !important; background-color: #F9C231 !important; width: 100px !important; margin-top: 10px  !important; margin-bottom: 30px  !important; }
+			.omm-figure-container__image-container { display: flex !important; justify-content: center !important; align-items: center !important; min-height: 70px  !important; }
+			.omm-figure-container__image { height: 3.5em  !important; }
+			.omm-a0 { line-height: 0.9em !important; font-size: 4em !important; }
+			.omm-a0-light { line-height: 0.9em !important; font-size: 4em !important; }
+			.omm-a1 { font-size: 1.8em !important; }
+			.omm-a1-light { font-size: 1.8em !important; }
+			.omm-a1--footer { font-size: 1em !important; }
+			.omm-a1-light--footer { font-size: 1em !important; }
+			.omm-s2 { font-size: 1em !important; }
+			.omm-s2--footer { font-size: 0.6em !important; }
+			.omm-figure-container { max-width: 450px  !important; }
+			.omm-list-container__list { width: 100% !important; }
+            .omm-figure-container--how-it-works { flex-direction: column !important; }
+        }
+
+        @media screen and (min-width: 801px) {
+			.omm-page { font-size: min(max(calc(1rem + 1vw)/1.4,14px),22px)  !important; }
+			.omm-banner { background-image: url("https://handypay.com.au/wp-content/uploads/2020/08/hero3.jpg") !important; background-position: top center !important; background-repeat: no-repeat !important; background-size: contain !important; }
+			.omm-banner-text { left:4% !important; top:35% !important; }
+			.ommButton { align-items: center !important; background-color: #F78B2E !important; border: 0px !important; border-radius: 100px 100px 100px 100px !important; color: #ffffff !important; cursor: pointer !important; display: flex !important; font-family: "Myriad Pro" !important; font-size: 1em !important; font-style: normal !important; font-weight: 600 !important; height: 60px !important; justify-content: center !important; padding: 0 !important; text-decoration: none !important; text-shadow:none !important; width: 250px !important; }
+			.ommButton--bottom { font-size: 1em !important; }
+			.omm-figure-container__image { height: 3.5em  !important; }
+			.omm-separator { margin: 50px !important; }
+			.omm-divider { border-top: 3px solid !important; border-bottom: 3px solid !important; border-left: 4px solid !important; border-right: 4px solid !important; border-radius: 4px !important; border-color: #F9C231 !important; border-bottom-color: #F9C231 !important; background-color: #F9C231 !important; width: 150px !important; margin-top: 10px  !important; margin-bottom: 30px  !important; }
+			.omm-logo { margin-top: 3em !important; width: 100% !important; max-width: 400px  !important; }
+            .omm-list-container__list { width: auto !important; }
+            .omm-a0 { line-height: 0.9em !important; font-size: 5em !important; }
+			.omm-a0-light { line-height: 0.9em !important; font-size: 5em !important; }
+			.omm-a1 { font-size: 2.2em !important; }
+			.omm-a1-light { font-size: 2.2em !important; }
+			.omm-a1--footer { font-size: 1em !important; }
+			.omm-a1-light--footer { font-size: 1em !important; }
+            .omm-s2 { font-size: 1em !important; font-weight: 300 !important; }
+			.omm-s2--footer { font-size: 0.8em !important; }
+			.omm-m4 { font-size: max(1em, 16px) !important; }
+        }
+	</style>
+</head>
+<body class="omm-page">
+    <section class="omm-section omm-banner">
+        <img class="omm-banner__image" style="visibility:hidden"
+            src="https://handypay.com.au/wp-content/uploads/2020/08/hero3.jpg">
+		<div class="omm-banner-text" >
+			<div class="omm-a0">Swim Now,</div>
+			<div class="omm-a0-light" style="margin-bottom: 16px">Pay Later.</div>
+			<div class="omm-m4 omm-m4-banner">&nbsp;Flexible Swimming Pool Payment Plans</div><br/>
+			<a class="ommButton" onclick="window.open('https://app.handypay.com.au/portal/register-get-started/ScenicPools', '_blank')">Get Started</a>
+		</div>
+        
+    </section>
+
+    <section class="omm-section">
+        <img class="omm-logo"
+            src="https://handypay.com.au/wp-content/uploads/2019/07/logo.png" />
+    </section>
+
+    <div class="omm-separator"></div>
+
+    <section class="omm-section">
+        <div class="omm-m4">Flexible payments that make sense</div>
+        <div class="omm-a1">Who is Handypay?</div>
+        <hr class="omm-divider" />
+        <div class="omm-s2 left"
+            style="max-width: 90%">We have partnered with Handypay so that you can accesss a simple,
+			affordable payment plan for your swimming pool related needs. Swim now, pay later. Now that's handy!
+        </div>
+    </section>
+
+    <div class="omm-separator"></div>
+
+    <section class="omm-section"
+        style="width:100%">
+        <div class="omm-a1">Flexible Payment Plans</div>
+        <hr class="omm-divider" />
+        <div class="omm-figure-container omm-figure-container--large" style="width:80%">
+            <figure class="omm-figure-container__figure">
+                <div class="omm-figure-container__image-container">
+                    <img class="omm-figure-container__image"
+                        src="https://handypay.com.au/wp-content/uploads/2020/08/amount.png">
+                </div>
+                <figcaption>
+                    <div class="omm-a3">Amounts</div>
+                    <div class="omm-s2">$2,001 - $75,000</div>
+                </figcaption>
+            </figure>
+            <figure class="omm-figure-container__figure">
+                <div class="omm-figure-container__image-container">
+                    <img class="omm-figure-container__image"
+                        src="https://handypay.com.au/wp-content/uploads/2020/08/hourglass.png">
+                </div>
+                <figcaption>
+                    <div class="omm-a3">Available Terms</div>
+                    <div class="omm-s2">1 - 7 Years</div>
+                </figcaption>
+            </figure>
+            <figure class="omm-figure-container__figure">
+                <div class="omm-figure-container__image-container">
+                    <img class="omm-figure-container__image"
+                        src="https://handypay.com.au/wp-content/uploads/2020/08/calendar.png">
+                </div>
+                <figcaption>
+                    <div class="omm-a3">Repayment Options</div>
+                    <div class="omm-s2">Weekly, Fortnightly<br />Monthly</div>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <div class="omm-separator"></div>
+
+    <section class="omm-section">
+        <div class="omm-m4">Minimum Eligibility Criteria</div>
+        <div class="omm-a1">Who Can Apply?</div>
+        <hr class="omm-divider" />
+        <div class="omm-figure-container omm-figure-container--large">
+            <figure class="omm-figure-container__figure">
+                <div class="omm-figure-container__image-container">
+                    <img class="omm-figure-container__image"
+                        src="https://handypay.com.au/wp-content/uploads/2020/08/18.png" />
+                </div>
+                <figcaption>
+                    <div class="omm-s2">Must be over<br />18 years</div>
+                </figcaption>
+            </figure>
+            <figure class="omm-figure-container__figure">
+                <div class="omm-figure-container__image-container">
+                    <img class="omm-figure-container__image"
+                        src="https://handypay.com.au/wp-content/uploads/2020/08/australia.png" />
+                </div>
+                <figcaption>
+                    <div class="omm-s2">Australian Permanent Resident or Australian Citizen</div>
+                </figcaption>
+            </figure>
+            <figure class="omm-figure-container__figure">
+                <div class="omm-figure-container__image-container">
+                    <img class="omm-figure-container__image"
+                        src="https://handypay.com.au/wp-content/uploads/2020/08/income.png" />
+                </div>
+                <figcaption>
+                    <div class="omm-s2">Must receive employment income</div>
+                </figcaption>
+            </figure>
+            <figure class="omm-figure-container__figure">
+                <div class="omm-figure-container__image-container">
+                    <img class="omm-figure-container__image"
+                        src="https://handypay.com.au/wp-content/uploads/2020/08/person.png" />
+                </div>
+                <figcaption>
+                    <div class="omm-s2">Must be for<br />consumer use only</div>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <div class="omm-separator"></div>
+
+    <section class="omm-section">
+        <div class="omm-m4">Approved in Seconds</div>
+        <div class="omm-a1">How it Works</div>
+        <hr class="omm-divider" />
+        <div class="omm-figure-container omm-figure-container--large omm-figure-container--how-it-works">
+            <figure class="omm-figure-container__figure">
+                <div class="omm-figure-container__image-container">
+                    <img class="omm-figure-container__image"
+                        src="https://handypay.com.au/wp-content/uploads/2019/07/Bascet-1-2.svg">
+                </div>
+                <figcaption>
+                    <div class="omm-a3">You Shop</div>
+                    <div class="omm-s2">Select what you want to buy</div>
+                </figcaption>
+            </figure>
+            <figure class="omm-figure-container__figure">
+                <div class="omm-figure-container__image-container">
+                    <img class="omm-figure-container__image"
+                        src="https://handypay.com.au/wp-content/uploads/2019/07/phone-1-1.svg">
+                </div>
+                <figcaption>
+                    <div class="omm-a3">You Apply</div>
+                    <div class="omm-s2">Apply to buy now and pay later</div>
+                </figcaption>
+            </figure>
+            <figure class="omm-figure-container__figure">
+                <div class="omm-figure-container__image-container">
+                    <img class="omm-figure-container__image"
+                        style="margin-left:10px"
+                        src="https://handypay.com.au/wp-content/uploads/2019/07/card_80x80.svg">
+                </div>
+                <figcaption>
+                    <div class="omm-a3">We Pay</div>
+                    <div class="omm-s2">Approved in seconds &amp; we pay the vendor</div>
+                </figcaption>
+            </figure>
+            <figure class="omm-figure-container__figure">
+                <div class="omm-figure-container__image-container">
+                    <img class="omm-figure-container__image"
+                        src="https://handypay.com.au/wp-content/uploads/2019/07/glass-1.svg">
+                </div>
+                <figcaption>
+                    <div class="omm-a3">Own It</div>
+                    <div class="omm-s2">Own it today with flexible payments</div>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <div class="omm-separator"></div>
+
+    <section class="omm-section">
+        <div>
+            <text class="omm-a1">Swim Now, </text>
+            <text class="omm-a1-light">Pay Later.</text>
+        </div>
+        <div style="margin-top: 50px; margin-bottom: 50px">
+            <div style="text-align:center;display:inline-flex"><a class="ommButton ommButton--bottom"
+                    onclick="window.open('https://app.handypay.com.au/portal/register-get-started/ScenicPools', '_blank')">Get Started</a></div>
+            <div class="omm-m5-light"
+                style="margin-top:10px;">An inquiry won't impact your credit score</div>
+        </div>
+        <div class="omm-list-container" style="width:90vw">
+            <div class="omm-list-container__list">
+                <div class="omm-s2 omm-list-container__list-item"><img
+                        style="width:1.5em;height:1.5em;margin-right:0.5em;"
+                        src="https://handypay.com.au/wp-content/uploads/2020/08/tick.png" />Click
+                    'Get Started' and receive a decision in seconds
+                </div>
+                <div class="omm-s2 omm-list-container__list-item"><img
+                        style="width:1.5em;height:1.5em;margin-right:0.5em;"
+                        src="https://handypay.com.au/wp-content/uploads/2020/08/tick.png" />Once
+                    Approved, Handypay will cover the upfront cost of your purchase
+                </div>
+                <div class="omm-s2 omm-list-container__list-item"><img
+                        style="width:1.5em;height:1.5em;margin-right:0.5em;"
+                        src="https://handypay.com.au/wp-content/uploads/2020/08/tick.png" />
+                    Repayments are conveniently scheduled in line with your income
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="omm-separator"></div>
+
+    <img align="middle"
+        src="https://handypay.com.au/wp-content/uploads/2020/06/hero2-scaled.jpg"
+        style="display:block;width:100%;max-width:1400px;">
+
+    <div class="omm-separator"></div>
+
+    <section class="omm-section">
+        <div class="omm-m4">Simple, Affordable Payment Plans</div>
+        <div class="omm-a1">What interest will I pay?</div>
+        <hr class="omm-divider" />
+        <div class="omm-s2 left"
+            style="max-width: 90%">Eligible applicants can receive a special discount rate from 6.29%
+            p.a. (Comparison Rate 6.80%), assuming a $15,000 loan over a 7-year term. For non-eligible
+            applicants, other fees or charges may apply.
+        </div>
+        <div style="margin-top: 50px; margin-bottom: 10px">
+            <div style="text-align:center;display:inline-flex"><a class="ommButton ommButton--bottom"
+                    onclick="window.open('https://app.handypay.com.au/portal/register-get-started/ScenicPools', '_blank')">Get Started</a></div>
+            <p class="omm-m5-light"
+                style="margin-top:10px;">An inquiry won't impact your credit score</p>
+        </div>
+    </section>
+
+    <div class="omm-separator"></div>
+
+    <section class="omm-section">
+        <div class="omm-a1"
+            style="display:block; text-align:center; width:100%">Need help?</div>
+        <div style="display:flex;flex-wrap:nowrap;justify-content:center;align-content:center;">
+            <text class="omm-s1">Call us on </text> &nbsp;
+            <text class="omm-s1-bold"><a class="omm-a" href="tel:1300 990 115">1300 990 115</a></text>
+        </div>
+    </section>
+
+    <section class="omm-section">
+        <a class="omm-logo"
+            href="https://handypay.com.au"
+            style="text-decoration:none;">
+            <img style="width: 100%;"
+                src="https://handypay.com.au/wp-content/uploads/2019/07/logo.png" />
+        </a>
+    </section>
+	
+	<div class="omm-separator"></div>
+
+    <section class="omm-section">
+        <div class="omm-s2 omm-s2--footer" style="max-width: 80%;flex-wrap:nowrap">
+            OurMoneyMarket Lending Pty Ltd ABN 64 605 231 669 trading as Handypay | Australian Credit
+            License 488228. Credit is subject to OurMoneyMarket Lending's standard terms and conditions and lending
+            criteria.
+        </div>
+    </section>
+    <footer class="omm-footer">
+        <br />
+        <div style="text-align:center">
+            <a href="https://handypay.com.au"
+                style="text-decoration:none;color: #2b2b2b">
+                <text class="omm-a1 omm-a1--footer">Swim Now, </text>
+                <text class="omm-a1-light omm-a1-light--footer">Pay
+                    Later.
+                </text>
+            </a>
+        </div>
+        <div class="omm-s2 omm-s2--footer">Simple&nbsp;<a
+                style="text-decoration:none;color: #2b2b2b;font-family:'Open Sans'"
+                href="https://handypay.com.au">Swimming Pool Payment Plans</a>&nbsp;with Handypay</div>
+        <div class="omm-s2 omm-s2--footer">&nbsp;<a style="text-decoration:none;color: #2b2b2b;font-family:'Open Sans'"
+                href="https://handypay.com.au">https://handypay.com.au</a></div>
+        <br />
+    </footer>
+    </body>
+</html>
